@@ -1,72 +1,81 @@
 import 'package:flutter/material.dart';
 
+
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Login',
+    return MaterialApp
+      (title: 'Comarcas de la Comunitat',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
-
-       primarySwatch: Colors.cyan,
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Login page'),
+      home: LoginScreen(),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
+class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-
-        title: Text(widget.title),
-      ),
       body: Center(
+        child: Padding(
+          padding: EdgeInsets.all(16.0),
+          child: Container(
+            height: MediaQuery.of(context).size.height - MediaQuery.of(context).padding.top,
+            decoration: const BoxDecoration(
+            image: DecorationImage(
+            opacity: 0.2,
+            image: AssetImage("assets/logos/fondo.png"),
+            repeat: ImageRepeat.repeat
+                ),
+              ),
 
-        child: Column(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Image.asset('assets/logos/logo_AlvaroFalomir.png', width: 400, height: 400
+              ),
+              SizedBox(height: 13.0),
+              Text(
+                'Instituto Álvaro Falomir',
+                style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold, fontFamily: "Pacifico"),
+              ),
+              SizedBox(height: 13.0),
+              TextFormField(
+                decoration: const InputDecoration(
+                  filled: true,
+                  fillColor: Colors.white,
+                  labelText: 'Usuario',
+                  border: OutlineInputBorder(),
+                ),
+              ),
+              SizedBox(height: 8.0),
+              TextFormField(
+                decoration: const InputDecoration(
+                  filled: true,
+                  fillColor: Colors.white,
+                  labelText: 'Contraseña',
+                  border: OutlineInputBorder(),
+                ),
+              ),
+              SizedBox(height: 13.0),
+              ElevatedButton(
+                onPressed: () {
 
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ],
+                },
+                child: Text('Iniciar sesión'),
+              ),
+            ],
+           ),
+          ),
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
       ),
     );
   }
