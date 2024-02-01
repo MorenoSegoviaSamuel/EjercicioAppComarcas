@@ -9,7 +9,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp
-      (title: 'Comarcas de la Comunitat',
+      (title: 'Provincias de la Comunitat',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
@@ -43,24 +43,24 @@ class provincias extends StatelessWidget{
                 backgroundImage: NetworkImage(provincies["provincies"][0]["img"]),
               ),
               Text(
-                'Prueba',
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, fontFamily: "Pacifico" ),
+                provincies["provincies"][0]["provincia"],
+                style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold, fontFamily: "Pacifico" ),
               ),
               CircleAvatar(
                 radius: 110,
-                backgroundImage: NetworkImage("https://upload.wikimedia.org/wikipedia/commons/8/8f/2006_-_panoramio_%2868%29.jpg") ,
+                backgroundImage: NetworkImage(provincies["provincies"][1]["img"]) ,
               ),
               Text(
-                'Prueba2',
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, fontFamily: "Pacifico" ),
+                provincies["provincies"][1]["provincia"],
+                style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold, fontFamily: "Pacifico" ),
               ),
               CircleAvatar(
                 radius: 110,
-                backgroundImage: NetworkImage("https://upload.wikimedia.org/wikipedia/commons/8/8f/2006_-_panoramio_%2868%29.jpg") ,
+                backgroundImage: NetworkImage(provincies["provincies"][2]["img"]),
               ),
               Text(
-                'Prueba3',
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, fontFamily: "Pacifico" ),
+                provincies["provincies"][2]["provincia"],
+                style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold, fontFamily: "Pacifico" ),
               ),
             ],
           ),
